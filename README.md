@@ -16,12 +16,16 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
     
     + [*** planned ***] A new user scenario
     
-    + [planned] Websocket endpoints for 
+    + [planned] Websocket endpoints for uniplex communication
                   1. ws endpoint
+                  2. topic
+                  
+    + [planned] Websocket endpoints for duplex communication
+                  1. ws endpoint (the one from uniplex communication)
                   2. topic
                   3. user specific endpoint
                   
-    + [planned] Websocket-complimentary Redis PubSub Channels
+    + [planned] Redis PubSub Channels, used in conjunction w/ websocket
                   1. publishing channel
                     1-1. broadcast
                     1-2. user specific
@@ -69,6 +73,13 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
         
         STOMP client -> ws endpoint/topics and wrap/unwrap messages
 
+
+## Websocket Components
+   asdfasdf
+
+
+## Redis PubSub Components
+   asdfasdf
 
 
 ## Sequence Diagram w/ WS endpoints and APIs (TODO)
