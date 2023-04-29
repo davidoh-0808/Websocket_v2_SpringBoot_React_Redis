@@ -12,6 +12,8 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
 
 
 ## TODO :
+    + [*** planned ***] Why Redis?
+
     + [*** planned ***] The components of Websocket and Redis
     
     + [*** planned ***] A new user scenario
@@ -73,8 +75,11 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
         
         STOMP client -> ws endpoint/topics and wrap/unwrap messages
 
+## Why Redis?
+   
 
-## Websocket Components
+
+## Websocket Components (w/ STOMP)
    asdfasdf
 
 
