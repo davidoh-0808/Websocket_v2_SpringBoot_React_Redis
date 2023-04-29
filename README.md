@@ -144,10 +144,10 @@ When multiple instances of frontend or browsers are present, one server cannot b
 > ie. Stock status of a shopping item for every customers needs access in real-time.
 
 Stock Status w/o Redis
-![image](https://drive.google.com/file/d/1J_PHS-jYVy7BP1LQZNh9kXc2ezIXugmf/view?usp=sharing)
+![websocket w_o Redis drawio](https://user-images.githubusercontent.com/75977587/235300506-6b271492-b877-445c-80dc-292a6660b37f.png)
 
 Stock Status w/ Redis
-![image](https://drive.google.com/file/d/1vWeq3pOlAx14yoPObQjoEdObF5g_hy4x/view?usp=share_link)
+![websocket w_redis drawio](https://user-images.githubusercontent.com/75977587/235300529-412b68c0-c1b9-4f1a-ac1e-0b1b78dd45d4.png)
 
 2) Without Redis, user-specific messages from each client will get lost after reaching the server (that is, if the server is made of microservices)
 
