@@ -135,11 +135,10 @@ Types of Data allowed in websocket:
 
 1) Without Redis, broadcasting a message from one websocket client to all the other clients is not possible.
 
-Why? 
+   Why?
+   Because in-memory Message Broker, "STOMP", is only local to the one client <--ws connection--> server connection.
 
-Because in-memory Message Broker, "STOMP", is only local to the one client <--ws connection--> server connection.
-
-When multiple instances of frontend or browsers are present, one server cannot broadcast the messages published by the client via Websocket, to all the other client instances connected to the socket.
+   When multiple instances of frontend or browsers are present, one server cannot broadcast the messages published by the client via Websocket, to all the    other client instances connected to the socket.
 
 > ie. Stock status of a shopping item for every customers needs access in real-time.
 
@@ -149,6 +148,9 @@ Stock Status w/o Redis<br/>
 Stock Status w/ Redis<br/>
 ![websocket w_redis drawio](https://user-images.githubusercontent.com/75977587/235300529-412b68c0-c1b9-4f1a-ac1e-0b1b78dd45d4.png)
 
+
+<br/>
+
 2) Without Redis, user-specific messages from each client will get lost after reaching the server (that is, if the server is made of microservices)
 
 Again, in-memory Message Broker, "STOMP", is only local to the one client <--ws connection--> server connection.
@@ -157,9 +159,15 @@ If the server is in MSA enviornment and is a cluster of instances.
 
 There is no guarantee the websocket server will route client's private message back to its rightful destination.
 
-> ie. An online shop user asks when an item will be back in stock via message chat.  The staff assistant replies, but the reply cannot reach its user.
+> ie. An online shop user asks when an item will be back in stock via message chat.  
+> The staff assistant replies, but the reply cannot reach its user.
 
-[Diagram Here]()
+User Inquiry w/o Redis
+![websocket2 w_o Redis drawio](https://user-images.githubusercontent.com/75977587/235305389-c284172e-8d95-4ece-9b20-34913fdac1bd.png)
+
+User Inquiry w/ Redis
+![websocket2 w_Redis drawio](https://user-images.githubusercontent.com/75977587/235306253-a1525626-9028-4693-9f1c-d3ecb836b8f6.png)
+
 
 <br/>
 <br/>
