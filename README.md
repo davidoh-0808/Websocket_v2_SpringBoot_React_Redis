@@ -77,7 +77,7 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
         
 
 ## What is Websocket? (Recap)
-![image](https://user-images.githubusercontent.com/75977587/233829276-90c20029-8b37-4301-b739-4781ecf9d6db.png)
+<img src="https://user-images.githubusercontent.com/75977587/233829276-90c20029-8b37-4301-b739-4781ecf9d6db.png" width="700" height="400">
 Websocket vs. TCP
 
     - WebSocket is a framed and bidirectional protocol. 
@@ -88,7 +88,7 @@ Websocket vs. TCP
     
     - WebSocket uses a unified TCP connection and needs one party to terminate the connection.
 
-![image](https://user-images.githubusercontent.com/75977587/233829287-5fa64948-09ef-42d0-9496-cc90dcf08e91.png)
+<img src="https://user-images.githubusercontent.com/75977587/233829287-5fa64948-09ef-42d0-9496-cc90dcf08e91.png" width="700" height="400">
 Types of Data allowed in websocket:
 
     - Data that can be serialized into a string or binary format, including
@@ -99,7 +99,7 @@ Types of Data allowed in websocket:
         all these in real-time
         
 
-## Why Redis?
+## <img src="https://user-images.githubusercontent.com/75977587/235294084-4393f6c8-4431-4279-86de-f315471750e2.png" width="100" height="100"> Why Redis?
 ### In short, multiplex communication among multiple instances of clients and servers"  
 
 1) Without Redis, broadcasting a message from one websocket client to all the other clients is not possible.
