@@ -12,18 +12,14 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
 
 
 ## TODO :
-    + [planned] Dissect the components of Websocket and Redis
+    + [*** planned ***] The components of Websocket and Redis
     
-    + [planned] Come up with my own User Scenario
+    + [*** planned ***] A new user scenario
     
     + [planned] Websocket endpoints for 
                   1. ws endpoint
                   2. topic
                   3. user specific endpoint
-                  
-    + [planned] Websocket endpoints for 
-                  1. name the endpoint
-                  2. 
                   
     + [planned] Websocket-complimentary Redis PubSub Channels
                   1. publishing channel
@@ -33,19 +29,19 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
                     1-1. broadcast
                     1-2. user specific
                     
-    + [planned] Name the Apis (Controllers)
+    + [planned] Naming the Apis (Controllers)
     
-    + [planned] Name the Services (including RedisService)
+    + [planned] Naming the Services (including RedisService)
+    
+    + [planned] The sequence diagram
+    
+    + [planned] switch to mvn -> gradle proj manager
+    
+    + [planned] Actual Coding
+    
+    + [planned] Write out logic in words
     
     + [planned] 
-    
-    + [planned] 
-    
-    + [planned] 
-    
-    + [planned] 
-    
-    + [planned]    switch to mvn -> gradle proj manager
     
     + [asdf]    
     + [asdf]    
@@ -84,7 +80,7 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
 
     **Frontend Logic (React)**
     -------------------------------------------------------------------------------------------
-        1.
+        1. 
         
         2.
         
