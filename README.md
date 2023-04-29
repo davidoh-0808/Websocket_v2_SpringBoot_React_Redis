@@ -138,7 +138,7 @@ Types of Data allowed in websocket:
 Why? Because in-memory Message Broker, "STOMP", is only local to the one client <--ws connection--> server connection.
 When multiple instances of frontend or browsers are present, one server cannot broadcast the messages published by the client via Websocket, to all the other client instances connected to the socket.
 
->> ie. Stock status of a shopping item for every customers needs access in real-time.
+> ie. Stock status of a shopping item for every customers needs access in real-time.
 
 [Diagram Here]()
 
@@ -147,7 +147,7 @@ When multiple instances of frontend or browsers are present, one server cannot b
 Again, in-memory Message Broker, "STOMP", is only local to the one client <--ws connection--> server connection.
 If the server is in MSA enviornment and is a cluster of instances.  There is no guarantee the websocket server will route client's private message back to its rightful destination.
 
->> ie. An online shop user asks when an item will be back in stock via message chat.  The staff assistant replies, but the reply cannot reach its user.
+> ie. An online shop user asks when an item will be back in stock via message chat.  The staff assistant replies, but the reply cannot reach its user.
 
 [Diagram Here]()
 
@@ -179,10 +179,10 @@ If the server is in MSA enviornment and is a cluster of instances.  There is no 
 
 
 
-## User Scenario
+## User Scenario w/ logic
 ### Online Vegan Store w/ only fresh items in Stock
 
-Item list / Real-time Stock Status
+#### List Item / Real-time Stock Update
 ---
 1. The user connects to the landing page.
 >The user is assigned UUID which will be printed on the page for clarification and used in websocket private message later.
@@ -195,29 +195,28 @@ Item list / Real-time Stock Status
 >Whenever a user buys an item, the item status (count) will change on all users connected to the list page.
 
 
-Buy Item
+#### Buy Item
 ---
 4. The user can order items.
+> Try using Eximbay PG for payment process .. :)
 
+5. The item can be OUT OF STOCK.
 >Buying an item will publish a stock update which is then displayed on the list page.
 >     websocket pub endpoint -> Redis pub channel -> Redis sub channel -> websocket topic endpoint
 >     
->Try using Eximbay PG for payment process :) 
+>An item of status, "OUT OF STOCK", cannot be purchased.
+>Instead, a "talk-to-staff" button becomes available for the user to click
 
-5.
+6. Click the "talk-to-staff" button to inquire about items.
+>The user can initiate chat by clicking the btn.
+>
+>This opens a new websocket connection, apart from the broadcast STOCK STATUS.
+>The connection is dedicated to using each 
 
-6.
-
-7.
-
->8.
-
->9.
-
->10.
+7. The staff responds to the user's inquiry about RESTOCK schedule.  The user is now content with the online store :)
 
 
-   Insert Diagram Here
+   ## TODO : Insert Diagram Here
 
 <br/>
 <br/>
@@ -228,32 +227,7 @@ Buy Item
 <br/>
 <br/>
 
-
-## Frontend and Backend Logic (TODO)
-
-    **Frontend Logic (React)**
-    -------------------------------------------------------------------------------------------
-        1. 
-        
-        2.
-        
-        3.
-        
-        4.
-
-
-    **Backend Logic (Spring Boot)**
-    ----------------------------------------------------------------------------------------
-
-        1.
-
-        2.
-
-        3.
-
-        4.
-            
-            
+                        
 
 
 ## Infra Architecture (Planned)
