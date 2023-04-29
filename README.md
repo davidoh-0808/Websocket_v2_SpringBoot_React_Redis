@@ -162,10 +162,10 @@ There is no guarantee the websocket server will route client's private message b
 > ie. An online shop user asks when an item will be back in stock via message chat.  
 > The staff assistant replies, but the reply cannot reach its user.
 
-User Inquiry w/o Redis
+User Inquiry w/o Redis<br/>
 ![websocket2 w_o Redis drawio](https://user-images.githubusercontent.com/75977587/235305389-c284172e-8d95-4ece-9b20-34913fdac1bd.png)
 
-User Inquiry w/ Redis
+User Inquiry w/ Redis<br/>
 ![websocket2 w_Redis drawio](https://user-images.githubusercontent.com/75977587/235306253-a1525626-9028-4693-9f1c-d3ecb836b8f6.png)
 
 
