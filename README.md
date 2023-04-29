@@ -1,14 +1,25 @@
-# ChatApplication
+# Order Stock Status + Chat Application
 </br>
 Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websocket_v1_SpringBoot_React.git) by adding Redis PubSub and Redis Stream
+
 </br>
 </br>
+
+
+
+
 
 ## ROADMAP :
    1) [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websocket_v1_SpringBoot_React.git)
    2) Websocket_v2_SpringBoot_React_Redis</br>
    3) [Websocket_v3_SpringBoot_React_Redis_Docker_ECS](https://github.com/davidoh-0808/Websocket_v3_SpringBoot_React_Redis_Docker_ECS.git)</br>
    4) [Websocket_v4_SpringBoot_React_Redis_MSA](https://github.com/davidoh-0808/Websocket_v4_SpringBoot_React_Redis_MSA.git)</br>
+
+<br/>
+<br/>
+
+
+
 
 
 ## TODO :
@@ -52,6 +63,12 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
     + [asdf]    
     + [asdf]    
 
+<br/>
+<br/>
+
+
+
+
 
 ## Web Architecture
 
@@ -74,7 +91,13 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
         SockJS -> open WebSocket, 
         
         STOMP client -> ws endpoint/topics and wrap/unwrap messages
-        
+
+<br/>
+<br/>
+
+
+
+
 
 ## What is Websocket? (Recap)
 <img src="https://user-images.githubusercontent.com/75977587/233829276-90c20029-8b37-4301-b739-4781ecf9d6db.png" width="700" height="400">
@@ -99,6 +122,14 @@ Types of Data allowed in websocket:
         all these in real-time
         
 
+<br/>
+<br/>
+
+
+
+
+
+
 ## <img src="https://user-images.githubusercontent.com/75977587/235294084-4393f6c8-4431-4279-86de-f315471750e2.png" width="100" height="100"> Why Redis?
 ### In short, multiplex communication among multiple instances of clients and servers"  
 
@@ -120,30 +151,83 @@ If the server is in MSA enviornment and is a cluster of instances.  There is no 
 
 [Diagram Here]()
 
+<br/>
+<br/>
+
+
+
+
 
 ## Websocket Components (w/ STOMP)
    asdfasdf
 
 
+<br/>
+<br/>
+
+
+
+
+
 ## Redis PubSub Components
    asdfasdf
 
+<br/>
+<br/>
+
+
+
+
 
 ## User Scenario
->>1.
-   
->>2.
->>3.
->>4.
->>5.
+### Online Vegan Store w/ only fresh items in Stock
+
+Item list / Real-time Stock Status
+---
+1. The user connects to the landing page.
+>The user is assigned UUID which will be printed on the page for clarification and used in websocket private message later.
+
+2. The user can see a list of items.
+
+3. The user can click on each item to see the details in modal.
+
+>The redirection will initiate <u>the Websocket Connection for Stock Status (item count or OUT OF STOCK)</u>.
+>Whenever a user buys an item, the item status (count) will change on all users connected to the list page.
+
+
+Buy Item
+---
+4. The user can order items.
+
+>Buying an item will publish a stock update which is then displayed on the list page.
+>     websocket pub endpoint -> Redis pub channel -> Redis sub channel -> websocket topic endpoint
+>     
+>Try using Eximbay PG for payment process :) 
+
+5.
+
+6.
+
+7.
+
+>8.
+
+>9.
+
+>10.
+
 
    Insert Diagram Here
 
+<br/>
+<br/>
 
 ## Sequence Diagram w/ WS endpointsAPIs (TODO)
    
-   
-    
+
+<br/>
+<br/>
+
 
 ## Frontend and Backend Logic (TODO)
 
@@ -175,8 +259,8 @@ If the server is in MSA enviornment and is a cluster of instances.  There is no 
 ## Infra Architecture (Planned)
 
 
-
-
+<br/>
+<br/>
 
 
 
@@ -185,16 +269,42 @@ If the server is in MSA enviornment and is a cluster of instances.  There is no 
 
 ## Pages in action
 
-![Chat screen](img/chat_screen.jpg "Chat screen")
+![Insert a video]()
 
 To start:
-    
+
+
+<br/>
+<br/>
+
+
+
+
+
+
 ### Client
         - npm install (in the react-client folder)
         - npm start
-    
+
+
+<br/>
+<br/>
+
+
+
+
+
+
 ### Server
         - TODO: use gradle
+
+
+<br/>
+<br/>
+
+
+
+
 
 
 ### Plan for the next Git Repo 
@@ -202,5 +312,7 @@ To start:
 
 
 
+<br/>
+<br/>
 
 
