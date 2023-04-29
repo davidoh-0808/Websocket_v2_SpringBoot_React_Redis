@@ -74,9 +74,49 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
         SockJS -> open WebSocket, 
         
         STOMP client -> ws endpoint/topics and wrap/unwrap messages
+        
+
+## What is Websocket? (Recap)
+
+---
+![image](https://user-images.githubusercontent.com/75977587/233829276-90c20029-8b37-4301-b739-4781ecf9d6db.png)
+Websocket vs. TCP
+
+    - WebSocket is a framed and bidirectional protocol. 
+        On the contrary to this, HTTP is a unidirectional protocol functioning above the TCP protocol.
+    
+    - WebSocket is faster than TCP. 
+        WebSocket allows uninterrupted pushing or transmitting data in the already open connection.
+    
+    - WebSocket uses a unified TCP connection and needs one party to terminate the connection.
+
+![image](https://user-images.githubusercontent.com/75977587/233829287-5fa64948-09ef-42d0-9496-cc90dcf08e91.png)
+Types of Data allowed in websocket:
+
+    - Data that can be serialized into a string or binary format, including
+        - text,
+        - images,
+        - and multimedia
+
+        all these in real-time
+        
 
 ## Why Redis?
-   
+### "The message between publisher and subscriber must be MULTIPLEXED between all instances."  
+
+1) In-memory Message Broker, "STOMP", is local to client <--ws connection--> server connection.
+When multiple instances of frontend (browser), it cannot broadcast the messages published by the client via Websocket, to all other instances connected to the socket.
+>> ie. Stock status of a shopping item which every customers needs access in real-time.
+
+[Diagram Here]()
+
+2) In-memory Message Broker, "STOMP", is local to client.  
+
+Thus, when multiple instances of frontend (browser), it cannot relay the messages published by the client via Websocket, back to the publishing client instance.  
+
+>> ie. 
+
+[Diagram Here]()
 
 
 ## Websocket Components (w/ STOMP)
@@ -87,7 +127,18 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
    asdfasdf
 
 
-## Sequence Diagram w/ WS endpoints and APIs (TODO)
+## User Scenario
+>>1.
+   
+>>2.
+>>3.
+>>4.
+>>5.
+
+   Insert Diagram Here
+
+
+## Sequence Diagram w/ WS endpointsAPIs (TODO)
    
    
     
@@ -123,35 +174,14 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
 
 
 
-## Websocket Principles
-
----
-![image](https://user-images.githubusercontent.com/75977587/233829276-90c20029-8b37-4301-b739-4781ecf9d6db.png)
-Websocket vs. TCP
-
-    - WebSocket is a framed and bidirectional protocol. 
-        On the contrary to this, HTTP is a unidirectional protocol functioning above the TCP protocol.
-    
-    - WebSocket is faster than TCP. 
-        WebSocket allows uninterrupted pushing or transmitting data in the already open connection.
-    
-    - WebSocket uses a unified TCP connection and needs one party to terminate the connection.
-
-![image](https://user-images.githubusercontent.com/75977587/233829287-5fa64948-09ef-42d0-9496-cc90dcf08e91.png)
-Types of Data allowed in websocket:
-
-    - Data that can be serialized into a string or binary format, including
-        - text,
-        - images,
-        - and multimedia
-
-        all these in real-time
 
 
 
 
 
-## ReactJS screen
+
+
+## Pages in action
 
 ![Chat screen](img/chat_screen.jpg "Chat screen")
 
