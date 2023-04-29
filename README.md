@@ -77,8 +77,6 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
         
 
 ## What is Websocket? (Recap)
-
----
 ![image](https://user-images.githubusercontent.com/75977587/233829276-90c20029-8b37-4301-b739-4781ecf9d6db.png)
 Websocket vs. TCP
 
@@ -102,19 +100,23 @@ Types of Data allowed in websocket:
         
 
 ## Why Redis?
-### "The message between publisher and subscriber must be MULTIPLEXED between all instances."  
+### In short, multiplex communication among multiple instances of clients and servers"  
 
-1) In-memory Message Broker, "STOMP", is local to client <--ws connection--> server connection.
-When multiple instances of frontend (browser), it cannot broadcast the messages published by the client via Websocket, to all other instances connected to the socket.
->> ie. Stock status of a shopping item which every customers needs access in real-time.
+1) Without Redis, broadcasting a message from one websocket client to all the other clients is not possible.
+
+Why? Because in-memory Message Broker, "STOMP", is only local to the one client <--ws connection--> server connection.
+When multiple instances of frontend or browsers are present, one server cannot broadcast the messages published by the client via Websocket, to all the other client instances connected to the socket.
+
+>> ie. Stock status of a shopping item for every customers needs access in real-time.
 
 [Diagram Here]()
 
-2) In-memory Message Broker, "STOMP", is local to client.  
+2) Without Redis, user-specific messages from each client will get lost after reaching the server (that is, if the server is made of microservices)
 
-Thus, when multiple instances of frontend (browser), it cannot relay the messages published by the client via Websocket, back to the publishing client instance.  
+Again, in-memory Message Broker, "STOMP", is only local to the one client <--ws connection--> server connection.
+If the server is in MSA enviornment and is a cluster of instances.  There is no guarantee the websocket server will route client's private message back to its rightful destination.
 
->> ie. 
+>> ie. An online shop user asks when an item will be back in stock via message chat.  The staff assistant replies, but the reply cannot reach its user.
 
 [Diagram Here]()
 
