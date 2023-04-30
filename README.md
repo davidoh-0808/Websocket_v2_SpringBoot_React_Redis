@@ -218,13 +218,14 @@ User Inquiry w/ Redis<br/>
 4. The user can order items.
 > Try using Eximbay PG for payment process .. :)
 
-#### Real-time Stock Update
-(Uniplex communication via API)
+
+#### Real-time Stock Update (Uniplex via API)
+---
 5. A successful order sends a stock update api to the postgre DB 
    and triggers an one-directional API that updates the stock status for all the client users.
 
-#### Chat w/ the staff 
-(Duplex communication)
+#### Chat w/ the staff (Duplex)
+---
 6. The item can be OUT OF STOCK.
 >Buying an item will publish a stock update which is then displayed on the list page.
 >     websocket pub endpoint -> Redis pub channel -> Redis sub channel -> websocket topic endpoint
@@ -232,13 +233,13 @@ User Inquiry w/ Redis<br/>
 >An item of status, "OUT OF STOCK", cannot be purchased.
 >Instead, a "talk-to-staff" button becomes available for the user to click
 
-6. Click the "talk-to-staff" button to inquire about items.
+7. Click the "talk-to-staff" button to inquire about items.
 >The user can initiate chat by clicking the btn.
 >
 >This opens a new websocket connection, apart from the broadcast STOCK STATUS.
 >The connection is dedicated to using each 
 
-7. The staff responds to the user's inquiry about RESTOCK schedule.  The user is now content with the online store :)
+8. The staff responds to the user's inquiry about RESTOCK schedule.  The user is now content with the online store :)
 
 
    ## TODO : Insert Diagram Here
