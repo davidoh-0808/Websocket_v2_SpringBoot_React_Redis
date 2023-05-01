@@ -198,11 +198,19 @@ var data = mapper.readValue(message,WebSocketMessage.class);
 
 ### SimpMessagingTemplate
 Definition :
-> 
+> Provided by Spring as a high-level messaging interface, this class provides methods
+   , such as .convertAndSend , .getUserDestinationPrefix , .convertAndSendToUser
+   to allow simple message deliverance to Websocket endpoints.
 
 Related Code :
 ```
+private final SimpMessagingTemplate template;
 
+// all users
+template.convertAndSend("/topic/mytopic/", "message")
+
+// to specific user
+template.convertAndSendToUser("userId", "/topic/mytopic/", "message"));
 ```
 <br/>
 <br/>
@@ -214,8 +222,6 @@ Definition :
    
    The operation is done so in a reactive, non-blocking way 
    (the next request-response patterns will begin, instead of waiting for the first response to complete)
-   
-   This class uses .convertAndSend
 
    Redis serves as a global message holder which renders instance-local messages globally available for all instances.
 
