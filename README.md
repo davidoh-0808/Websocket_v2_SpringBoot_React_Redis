@@ -176,23 +176,83 @@ User Inquiry w/ Redis<br/>
 
 
 
-## Websocket Components (w/ STOMP)
-   asdfasdf
+## Components of Websocket and Redis
 
+### ObjectMapper
+Definition :
+> Provided by Jackson Library, this class can perform two major tasks :
+   1. wrap Java-oriented data into Websocket-friendly data (JSON) to broadcast the message.
+   2. unwrap Websocket-friendly data (JSON) into Java-friendly object to read the message.
 
+Related Code :
+```
+private final ObjectMapper mapper;
+
+String data = mapper.writeValueAsString(socketData);
+
+var data = mapper.readValue(message,WebSocketMessage.class);
+```
 <br/>
 <br/>
 
 
+### SimpMessagingTemplate
+Definition :
+> 
 
+Related Code :
+```
 
-
-## Redis PubSub Components
-   asdfasdf
-
+```
 <br/>
 <br/>
 
+
+### ReactiveRedisTemplate
+Definition :
+> This Redis class can operate and manipulate Redis data structures such as Set, Ordred Set, HashMap, and others.
+   
+   The operation is done so in a reactive, non-blocking way 
+   (the next request-response patterns will begin, instead of waiting for the first response to complete)
+   
+   This class uses .convertAndSend
+
+   Redis serves as a global message holder which renders instance-local messages globally available for all instances.
+
+Related Code :
+```
+// 1. send the message to Redis first, the global message holder, so, all websocket clients can share the identical messages.
+@RequiredArgsConstructor
+public class CustomWebSocketService {
+
+    private final ReactiveRedisTemplate redisTemplate;
+    private final ObjectMapper mapper;
+
+    public void convertAndSend(String topic, Object message) {
+        var socketData = new WebSocketMessage(topic, message);
+        String data = mapper.writeValueAsString(socketData);
+        redisTemplate.convertAndSend("<channel-name>", data);
+    }
+
+}
+
+// 2. the global message (via Redis) can be consumed by the below code, using Spring's SimpMessagingTemplate
+@RequiredArgsConstructor
+public class RedisPubsubReceiver {
+
+    private final SimpMessagingTemplate template;
+    private final ObjectMapper mapper;
+
+    public void receiveMessage(String message) {
+        var data = mapper.readValue(message,WebSocketMessage.class);
+        template.convertAndSend(data.getTopic(), data.getMessage());
+    }
+
+}
+```
+<br/>
+<br/>
+<br/>
 
 
 
