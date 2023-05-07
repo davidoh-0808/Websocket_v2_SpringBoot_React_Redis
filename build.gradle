@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.0.6'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+allprojects {
+    group = 'david'
+    repositories {
+        mavenCentral()
+    }
+}
+
+
+//group = 'david'
+//version = '0.0.1-SNAPSHOT'
+//sourceCompatibility = '17'
+//
+//configurations {
+//    compileOnly {
+//        extendsFrom annotationProcessor
+//    }
+//}
+//
+//repositories {
+//    mavenCentral()
+//}
+//
+//dependencies {
+//    // Websocket
+//    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+//
+//    // Redis
+//    // implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-redis-reactive'
+//
+//    // Jackson
+//    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.0'
+//
+//    // Persistent DB
+//    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+//    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.0'
+//    runtimeOnly 'org.postgresql:postgresql'
+//
+//    // Spring Boot
+//    // implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//
+//    // etc
+//    compileOnly 'org.projectlombok:lombok'
+//    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+//    annotationProcessor 'org.projectlombok:lombok'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testImplementation 'io.projectreactor:reactor-test'
+//}
+//
+//tasks.named('test') {
+//    useJUnitPlatform()
+//}

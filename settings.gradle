@@ -1,0 +1,6 @@
+rootProject.name = 'Websocket_v2_SpringBoot_React_Redis'
+
+include("dto")
+include("backend-stock")
+include("backend-chat")
+
