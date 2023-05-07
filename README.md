@@ -23,11 +23,11 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
 
 
 ## TODO :
-    + [*** planned ***] Why Redis?
+    + [Done] Why Redis?
 
-    + [*** planned ***] The components of Websocket and Redis
+    + [Done] The components of Websocket and Redis
     
-    + [*** planned ***] A new user scenario
+    + [Done] A new user scenario
     
     + [planned] Websocket endpoints for uniplex communication
                   1. ws endpoint
