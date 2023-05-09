@@ -8,4 +8,10 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class Item {
+
+    private long id;
+    private String name;
+    private int price;
+    private ItemStatus itemStatus;
+
 }
