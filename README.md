@@ -35,17 +35,23 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
                   
     + [planned] Websocket endpoints for duplex communication
                   1. ws endpoint (the one from uniplex communication)
-                  2. topic
-                  3. user specific endpoint
+                  2. app
+                  3. topic
+                  4. user specific endpoint
                   
-    + [planned] Redis PubSub Channels, used in conjunction w/ websocket
+    + [planned] Redis PubSub & Streaming Channels, used in conjunction w/ websocket
+                  PubSub
                   1. publishing channel
                     1-1. broadcast
-                    1-2. user specific
-                  2. subscribing channel
+                  2. subscribing 
                     1-1. broadcast
-                    1-2. user specific
-                    
+                 
+                  Streaming
+                  1. publishing channel
+                    1-1. user specific 
+                  2. subscribing channel
+                    1-1. user specific
+ 
     + [planned] Naming the Apis (Controllers)
     
     + [planned] Naming the Services (including RedisService)
