@@ -5,9 +5,11 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class BuyItemDto {
+public class ItemPurchaseDto {
 
     private long itemId;
+    private String itemName;
     private int purhcaseCount;
+    private int stockCount;
 
 }

@@ -1,7 +1,9 @@
 package david.backendstock.service;
 
+import david.backendstock.model.StockUpdateEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.redis.connection.stream.StreamRecords;
 import org.springframework.data.redis.core.ReactiveRedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -10,8 +12,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class RedisStreamProducer {
 
-    private ReactiveRedisTemplate<String, String> redisTemplate;
+    private final ReactiveRedisTemplate<String, String> reactiveRedisTemplate;
 
+    /*
+        Record :
+            key for stream,
+            actual value
+    */
+    public void publishNewItemStatus(String streamKey, StockUpdateEvent event) {
+        var record = StreamRecords.newRecord().ofObject( event ).withStreamKey( streamKey );
 
+        reactiveRedisTemplate.opsForStream().add( record ).subscribe();
+    }
 
 }

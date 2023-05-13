@@ -1,10 +1,10 @@
 package david.backendstock.service;
 
-import david.backendstock.model.BuyItemDto;
-import david.backendstock.model.StockUpdateEvent;
+import david.backendstock.model.ItemPurchaseDto;
+import david.model.Item;
 
 public interface ItemService {
 
-    StockUpdateEvent buyItem(BuyItemDto dto);
+    Item updateItemStatus(ItemPurchaseDto dto);
 
 }

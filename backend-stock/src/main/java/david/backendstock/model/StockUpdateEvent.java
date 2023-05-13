@@ -2,6 +2,7 @@ package david.backendstock.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import david.model.Item;
 import lombok.*;
 
 /**
@@ -9,8 +10,6 @@ import lombok.*;
  */
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
 public class StockUpdateEvent {
 
@@ -18,6 +17,6 @@ public class StockUpdateEvent {
     private String topic;
 
     @JsonProperty(value = "message")
-    private String message;
+    private Item message;
 
 }

@@ -1,6 +1,6 @@
 package david.backendchat.config;
 
-import david.backendchat.model.StockUpdateEvent;
+import david.model.ItemInquiryEvent;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.ReactiveKeyCommands;
@@ -13,7 +13,10 @@ import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-
+/**
+ * The starting point for all Redis related config
+ *      - LettuceConnectionFactory is set up to handle the connections to Redis Server
+ */
 @Configuration
 public class RedisConfig {
 
@@ -23,35 +26,31 @@ public class RedisConfig {
      * switch to RedisClusterConfiguration if multiple Redis nodes, "servers", become required.
      */
     @Bean
-    public LettuceConnectionFactory redisConnectionFactory() {
+    public LettuceConnectionFactory getRedisConnectionFactory() {
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("localhost", 6379);
         return new LettuceConnectionFactory(config);
     }
 
 
     /**
-     * register reactiveRedisTemplate for Redis Services (pub, sub, stream producer, stream consumer
+     * register reactiveRedisTemplate for Redis Pub/Sub services ("backendchat" services for stock status inquiry chat)
      *
      * configure what kind of data the Redis template will serialize and deserialize
      */
     @Bean
-    ReactiveRedisTemplate<String, StockUpdateEvent> reactiveRedisTemplate(LettuceConnectionFactory factory) {
-        /* 1 */
+    public ReactiveRedisTemplate<String, ItemInquiryEvent> reactiveRedisTemplate() {
+
         StringRedisSerializer keySerializer = new StringRedisSerializer();
 
-        /* 2 */
-        Jackson2JsonRedisSerializer<StockUpdateEvent> valueSerializer =
-                            new Jackson2JsonRedisSerializer<>(StockUpdateEvent.class);
+        Jackson2JsonRedisSerializer<ItemInquiryEvent> valueSerializer =
+                            new Jackson2JsonRedisSerializer<>(ItemInquiryEvent.class);
 
-        /* 3 */
-        RedisSerializationContext.RedisSerializationContextBuilder<String, StockUpdateEvent> builder =
-                                                                                /* 1 */
-                            RedisSerializationContext.newSerializationContext(keySerializer);
+        RedisSerializationContext.RedisSerializationContextBuilder<String, ItemInquiryEvent> builder =
+                            RedisSerializationContext.newSerializationContext( keySerializer );
 
-                                                                      /* 3 */            /* 2 */
-        RedisSerializationContext<String, StockUpdateEvent> context = builder.value(valueSerializer).build();
+        RedisSerializationContext<String, ItemInquiryEvent> context = builder.value (valueSerializer ).build();
 
-        return new ReactiveRedisTemplate<>(factory, context);
+        return new ReactiveRedisTemplate<>(getRedisConnectionFactory(), context);
     }
 
 

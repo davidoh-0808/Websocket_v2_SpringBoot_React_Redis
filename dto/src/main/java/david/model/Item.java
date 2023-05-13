@@ -9,8 +9,8 @@ import lombok.*;
 @Builder
 public class Item {
 
-    private long id;
-    private String name;
+    private long itemId;
+    private String itemName;
     private int price;
     private int stockCount;
     private ItemStatus itemStatus;
