@@ -15,6 +15,7 @@ public class RedisStreamConsumer implements StreamListener<String, ObjectRecord<
 
     private final SimpMessagingTemplate simpMessagingTemplate;
 
+
     @Override
     public void onMessage(ObjectRecord<String, StockUpdateEvent> record) {
         /* topic                -> "/topic/to-frontend/new-item-status"

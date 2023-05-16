@@ -8,7 +8,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 @Configuration
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
-    // FrontEnd opens STOMP websocket connection via uri, "/stomp/backend-stock"
+    // the frontend clients open STOMP websocket connection via uri, "/stomp/backend-stock"
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/stomp/backend-stock").setAllowedOrigins("*");
@@ -16,6 +16,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
+        // the frontend clients listen and receive stock update event via this URL prefix
         registry.enableSimpleBroker("/topic/backend-stock");
         // registry.setApplicationDestinationPrefixes("/app/backend-stock");
     }
