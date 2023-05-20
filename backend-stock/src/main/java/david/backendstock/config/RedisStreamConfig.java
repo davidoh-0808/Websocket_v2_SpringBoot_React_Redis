@@ -1,7 +1,7 @@
 package david.backendstock.config;
 
 
-import david.model.StreamDataEvent;
+import david.model.StockUpdateEvent;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,14 +28,14 @@ import java.time.Duration;
 public class RedisStreamConfig {
 
 
-    @Value("server.servlet.application-display-name")
+    @Value("${server.servlet.application-display-name}")
     private String applicationName;
 
     /* ObjectRecord
        S : Stream key
        V : Object Record can be a simple String value or custom object
      */
-    private StreamListener<String, ObjectRecord<String, StreamDataEvent>> streamListener;
+    private StreamListener<String, ObjectRecord<String, StockUpdateEvent>> streamListener;
 
 
     @Bean
@@ -52,7 +52,7 @@ public class RedisStreamConfig {
                 .StreamMessageListenerContainerOptions
                 .builder()
                 .pollTimeout(Duration.ofSeconds(1))
-                .targetType(StreamDataEvent.class)
+                .targetType(StockUpdateEvent.class)
                 .build();
 
         /* generate a listener w/ the redis factory and the options
@@ -62,8 +62,10 @@ public class RedisStreamConfig {
 
         // when the listener receives the message, the redis stream automatically removes (acknowledge) the message
         var subscription = listenerContainer.receiveAutoAck(
+                // TODO: CHECK .. not sure how consumer works here
                 Consumer.from("GROUP_REALTIME_ITEM_STATUS", applicationName),
-                /* the stream key (or id) the controller uses to broadcast the real time item status */
+                /* the stream key (or id) the controller uses to broadcast the real time item status
+                * pick up the stream right after the last consumed message*/
                 StreamOffset.create("STREAM_PUBLISH_ITEM_STATUS", ReadOffset.lastConsumed()), streamListener
         );
 

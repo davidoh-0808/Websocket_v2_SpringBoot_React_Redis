@@ -1,4 +1,4 @@
-package david.backendstock.model;
+package david.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

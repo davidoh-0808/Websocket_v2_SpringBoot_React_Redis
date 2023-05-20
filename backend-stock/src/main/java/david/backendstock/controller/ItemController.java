@@ -1,7 +1,7 @@
 package david.backendstock.controller;
 
 import david.backendstock.model.ItemPurchaseDto;
-import david.backendstock.model.StockUpdateEvent;
+import david.model.StockUpdateEvent;
 import david.backendstock.service.ItemService;
 import david.backendstock.service.RedisStreamProducer;
 import david.model.Item;

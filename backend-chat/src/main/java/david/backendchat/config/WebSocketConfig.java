@@ -24,7 +24,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.enableSimpleBroker("/chatroom/inquiry");
 
         /* User specific prefixes (helps redirect messages to either customer user or staff user)
-           ie. the frontend client will listen to this URL : /chatroom/user/{username} */
+           ie. the frontend client will listen to this URL : /chatroom/inquiry/{username}/private */
         registry.setUserDestinationPrefix("/chatroom/inquiry");
 
 
