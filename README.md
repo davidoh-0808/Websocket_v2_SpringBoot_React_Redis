@@ -29,7 +29,7 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
     
     + [Done] A new user scenario
     
-    + [planned] Websocket endpoints for uniplex communication
+    + [DONE] Websocket endpoints for uniplex communication
                   1. ws endpoint
                   2. topic
                   
@@ -39,7 +39,7 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
                   3. topic
                   4. user specific endpoint
                   
-    + [planned] Redis PubSub & Streaming Channels, used in conjunction w/ websocket
+    + [DONE] Redis PubSub & Streaming Channels, used in conjunction w/ websocket
                   PubSub
                   1. publishing channel
                     1-1. broadcast
@@ -52,22 +52,17 @@ Enhanced [Websocket_v1_SpringBoot_React](https://github.com/davidoh-0808/Websock
                   2. subscribing channel
                     1-1. user specific
  
-    + [planned] Naming the Apis (Controllers)
+    + [DONE] Naming the Apis (Controllers)
     
-    + [planned] Naming the Services (including RedisService)
+    + [DONE] Naming the Services (including RedisServices
     
-    + [planned] The sequence diagram
+    + [DONE] switch to mvn -> gradle proj manager
     
-    + [planned] switch to mvn -> gradle proj manager
+    + [DONE] Coding Backend
     
-    + [planned] Actual Coding
-    
-    + [planned] Write out logic in words
-    
-    + [planned] 
-    
-    + [asdf]    
-    + [asdf]    
+    + [planned] Coding Frontend
+
+    + [planned] Sequence Diagram 
 
 <br/>
 <br/>
